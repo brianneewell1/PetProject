@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<title>Petbook Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+</style>
+<body class="w3-theme-l5">
+
+<!-- Navbar -->
+<div class="w3-top">
+ <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Logo</a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>
+   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account">
+  </a>
+ </div>
+</div>
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+</div>
+
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3">
+      <!-- Profile -->
+      <div class="w3-card w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center">Pet Name</h4>
+         <p class="w3-center"><img src="https://via.placeholder.com/150" class="w3-circle" style="height:106px;width:106px" alt="Casey"></p>
+         <hr>
+         <p><i class="fa fa-heart-o fa-fw w3-margin-right w3-text-theme"></i>Species</p>
+         <p><i class="fa fa-heart fa-fw w3-margin-right w3-text-theme"></i>Breed</p>
+         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>Address</p>
+         <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i>Birthdate</p>
+         <p><i class="fa fa-microchip fa-fw w3-margin-right w3-text-theme"></i>Microchip ID</p>
+         </div>
+      </div>
+      <br>
+      
+           
+      <!-- Vaccine Record --> 
+      <div class="w3-card w3-round w3-white w3-hide-small">
+        <div class="w3-container">
+          <p>Vaccinations</p>
+          <p>
+            <a href="https://s2.q4cdn.com/175719177/files/doc_presentations/Placeholder-PDF.pdf" target="_blank"><span class="w3-tag w3-small w3-theme-d5">Rabies</span></a>
+            <a href="https://s2.q4cdn.com/175719177/files/doc_presentations/Placeholder-PDF.pdf" target="_blank"><span class="w3-tag w3-small w3-theme-d5">Rabies</span></a>
+        </p>
+        </div>
+      </div>
+      <br>
+      
+      <!-- Alert Box -->
+      <div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
+        <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
+          <i class="fa fa-remove"></i>
+        </span>
+        <p><strong>Hey!</strong></p>
+        <p>Your pet has a new medication. <a href="#" target="_blank">Find out more about it here</a></p>
+      </div>
+    
+    <!-- End Left Column -->
+    </div>
+    
+    <!-- Middle Column -->
+    <div class="w3-col m7">
+    
+        <div class="w3-container w3-card w3-white w3-round w3-margin">
+            <div class="w3-container">
+                <h4><i class="fa fa-calendar-o fa-fw w3-margin-right w3-text-theme"></i>Upcoming Events</h4><br>
+              <p><strong>Holiday</strong></p>
+              <p>Friday 15:00</p>
+              <p><button class="w3-button w3-block w3-theme-l4">Info</button></p>
+            </div>
+          </div>
+
+          
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <h4><i class="fa fa-location-arrow fa-fw w3-margin-right w3-text-theme"></i>View Providers Near You</h4><br>
+            <div id="yelpResults"></div>
+            <button onclick="getLocation()">Allow Access to Location</button>
+            <p>Enter Type</p>
+            <input class="w3-input w3-border" type="text" placeholder="dog salons" id="searchProv">
+            <p id="demo"></p>
+            <p><button class="w3-button w3-dark-grey" id="yelpBtn">Search</button></p>
+          </div>
+         </div>
+      
+    <!-- End Middle Column -->
+    </div>
+    
+    <!-- Right Column -->
+    <div class="w3-col m2">
+            <div class="w3-card w3-round w3-white w3-center">
+        <div class="w3-container">
+          <p>Friend Request</p>
+          <img src="" alt="Avatar" style="width:50%"><br>
+          <span>Jane Doe</span>
+          <div class="w3-row w3-opacity">
+            <div class="w3-half">
+              <button class="w3-button w3-block w3-green w3-section" title="Accept"><i class="fa fa-check"></i></button>
+            </div>
+            <div class="w3-half">
+              <button class="w3-button w3-block w3-red w3-section" title="Decline"><i class="fa fa-remove"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+<!-- End Page Container -->
+</div>
+<br>
+
+<!-- Footer -->
+<footer class="w3-container w3-theme-d3 w3-padding-16">
+  <h5>Footer</h5>
+</footer>
+
+<footer class="w3-container w3-theme-d5">
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+ 
+<script>
+    //User Location
+  var x = document.getElementById("demo");
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+  
+  function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude;
+    var latitude = position.coords.latitude;
+    localStorage.setItem("lat", latitude);
+    var longitude = position.coords.longitude;
+    localStorage.setItem("long", longitude);
+  }
+
+//Yelp API search 
+$("#yelpBtn").on("click", function () {
+    var provInput = document.getElementById("searchProv").value;
+    localStorage.setItem("provTerm", provInput);
+    const settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search",
+        "method": "GET",
+        "headers": {
+            "authorization": "Bearer OtPHKCuY1jmOsGPUZzwRiTMPh801290sRO3XbX026ZzZ2WD5lrTKhwb5WLX9tk_vsi_HJA_dvlqm8Y8mVfiCsWilSh9jwSykvB1QcsLTFEhmcGqvOSxFrnx8fCarX3Yx",
+        },
+        "data": {
+            "term": localStorage.getItem('provTerm'),
+            "latitude": localStorage.getItem('lat'),
+            "longitude": localStorage.getItem('long'),
+        }
+    };
+
+    //Display Yelp Results
+    $.ajax(settings).done(function (response) {
+        var yelpBusiness = response.businesses;
+        let yelpResults;
+        for (let i = 0; i < 30; i++) {
+            let yelpName = yelpBusiness[i].name
+            let yelpURL = yelpBusiness[i].url
+            yelpResults = document.createElement('div');
+            yelpResults.id = "yelp"; //Assign div id
+            yelpResults.setAttribute("style", "float:left; width:66.5%; line-height: 26px; text-align:left; font-size:12pt; padding-left:8px; height:26px;"); //Set div attributes
+            yelpResults.style.background = "white";
+            a = document.createElement('a');
+            a.href = yelpURL; // Insted of calling setAttribute 
+            a.innerHTML = yelpName // <a>INNER_TEXT</a>
+            yelpResults.appendChild(a); // Append the link to the div
+            $("#yelpResults").prepend(yelpResults); // And append the div to the document body
+        }
+    })
+})
+
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html> 
