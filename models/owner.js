@@ -51,4 +51,4 @@ Owner.init(
       }
 );
 
-module.exports = User;
+module.exports = Owner;
