@@ -2,30 +2,7 @@ const router = require('express').Router();
 const { Owner, Pet } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
-    try {
-      // Get all pets and JOIN with user data
-      const petData = await Pet.findAll({
-        include: [
-          {
-            model: Owner,
-            attributes: ['name'],
-          },
-        ],
-      });
 
-// Serialize data so the template can read it
-const pets = petData.map((pet) => pet.get({ plain: true }));
-
-// Pass serialized data and session flag into template
-res.render('homepage', { 
-  pets, 
-  logged_in: req.session.logged_in 
-});
-} catch (err) {
-res.status(500).json(err);
-}
-});
 
 router.get('/pet/:id', async (req, res) => {
 try {
@@ -80,6 +57,32 @@ return;
 }
 
 res.render('login');
+});
+
+router.get('/', async (req, res) => {
+    try {
+      // Get all pets and JOIN with user data
+      const petData = await Pet.findAll({
+        include: [
+          {
+            model: Owner,
+            //attributes: ['name'],
+          },
+        ],
+      });
+
+// Serialize data so the template can read it
+// const pets = petData.map((pet) => pet.get({ plain: true }));
+// console.log(pets)
+const pets=[{id:1, name:STRING }]
+// Pass serialized data and session flag into template
+res.render('homepage', { 
+  pets, 
+  logged_in: req.session.logged_in 
+});
+} catch (err) {
+res.status(500).json(err);
+}
 });
 
 module.exports = router;
