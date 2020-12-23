@@ -1,10 +1,16 @@
-const Profile = require('./Profile');
-const Owner = require('./Owner')
+const Pet = require('./Pet');
+const Owner = require('./Owner');
 
 
-Owner.hasMany(Pets)
 
-Pets.belongsTo(Owner)
+Owner.hasMany(Pet, {
+    foreign_key: 'user_id'
+});
+
+Pet.belongsTo(Owner, {
+    foreign_key: 'user_id'
+        
+});
   
 
-//module.exports = ??;
+module.exports = { Pet, Owner};
